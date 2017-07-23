@@ -26,6 +26,12 @@ namespace PatientHealthCare
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+
+            bundles.Add(new StyleBundle("~/Content/Theme").Include(
+                     "~/Content/bootstrap.css",
+                     "~/Content/bootstrap-theme.css",
+                     "~/Content/Theme/css/bootstrap-admin-theme.css",
+                      "~/Content/Theme/css/site.css"));
         }
     }
 }

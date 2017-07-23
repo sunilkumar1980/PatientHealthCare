@@ -522,6 +522,16 @@ var Main = function () {
                 $(this).removeClass('close').addClass('open');
             }
         });
+        $('.case-style-toggle').on('click', function () {
+
+            $("#case_update_box").toggleClass('close-style');
+
+            if ($(this).hasClass('open')) {
+                $(this).removeClass('open').addClass('close');
+            } else {
+                $(this).removeClass('close').addClass('open');
+            }
+        });
         setColorScheme();
         setLayoutStyle();
         setHeaderStyle();
@@ -658,7 +668,7 @@ var Main = function () {
 
             clipSetting.skinClass = $('#skin_color').attr('href');
 
-            $.cookie("clip-setting", JSON.stringify(clipSetting));
+            //$.cookie("clip-setting", JSON.stringify(clipSetting));
 
             var el = $('#style_selector_container');
             el.block({
@@ -681,38 +691,38 @@ var Main = function () {
     };
     //function to load user settings
     var runCustomSetting = function () {
-        if ($.cookie("clip-setting")) {
-            var loadSetting = jQuery.parseJSON($.cookie("clip-setting"));
+        //if ($.cookie("clip-setting")) {
+        //    var loadSetting = jQuery.parseJSON($.cookie("clip-setting"));
 
-            if (loadSetting.layoutBoxed) {
-                $('body').addClass('layout-boxed');
-                $('#style_selector select[name="layout"]').find('option[value="boxed"]').attr('selected', 'true');
-            };
-            if (loadSetting.headerDefault) {
-                $('body').addClass('header-default');
-                $('#style_selector select[name="header"]').find('option[value="default"]').attr('selected', 'true');
-            };
-            if (!loadSetting.footerDefault) {
-                $('body').addClass('footer-fixed');
-                $('#style_selector select[name="footer"]').find('option[value="fixed"]').attr('selected', 'true');
-            };
-            if ($('#style_selector').length) {
-                $('#skin_color').attr('href', loadSetting.skinClass);
-            };
-            if (loadSetting.rtl) {
-                $('#style_selector select[name="orientation"]').find('option[value="rtl"]').attr('selected', 'true');
-                $('body').addClass('rtl');
-                $('head').append('<link title="rtl" href="assets/css/rtl-version.min.css" rel="stylesheet" />');
-            }
-            $('body').addClass(loadSetting.bgStyle);
-        } else {
+        //    if (loadSetting.layoutBoxed) {
+        //        $('body').addClass('layout-boxed');
+        //        $('#style_selector select[name="layout"]').find('option[value="boxed"]').attr('selected', 'true');
+        //    };
+        //    if (loadSetting.headerDefault) {
+        //        $('body').addClass('header-default');
+        //        $('#style_selector select[name="header"]').find('option[value="default"]').attr('selected', 'true');
+        //    };
+        //    if (!loadSetting.footerDefault) {
+        //        $('body').addClass('footer-fixed');
+        //        $('#style_selector select[name="footer"]').find('option[value="fixed"]').attr('selected', 'true');
+        //    };
+        //    if ($('#style_selector').length) {
+        //        $('#skin_color').attr('href', loadSetting.skinClass);
+        //    };
+        //    if (loadSetting.rtl) {
+        //        $('#style_selector select[name="orientation"]').find('option[value="rtl"]').attr('selected', 'true');
+        //        $('body').addClass('rtl');
+        //        $('head').append('<link title="rtl" href="assets/css/rtl-version.min.css" rel="stylesheet" />');
+        //    }
+        //    $('body').addClass(loadSetting.bgStyle);
+        //} else {
             runDefaultSetting();
-        };
+        //};
     };
     //function to clear user settings
     var runClearSetting = function () {
         $('.clear_style').on('click', function () {
-            $.removeCookie("clip-setting");
+            //$.removeCookie("clip-setting");
             $('body').removeClass("layout-boxed header-default footer-fixed");
             $('body')[0].className = $('body')[0].className.replace(/\bbg_style_.*?\b/g, '');
             
@@ -790,7 +800,7 @@ var Main = function () {
             runPanelScroll();
             runShowTab();
             runAccordionFeatures();
-            runCustomCheck();
+            //runCustomCheck();
             runSaveSetting();
             runCustomSetting();
             runClearSetting();
